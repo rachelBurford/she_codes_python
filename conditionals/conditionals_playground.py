@@ -123,11 +123,11 @@ is_cold = True
 # if (tempreture < 20):
 #     print("Take a Jumper!")
 
-number1 = input("enter a number ")
-number2 = input("enter another number ")
-output1 = (float(number1) + float(number2))
+# number1 = input("enter a number ")
+# number2 = input("enter another number ")
+# output1 = (float(number1) + float(number2))
 
-if (output1 < 0):
-    print("negative")
-else:
-    print("positive")
+# if (output1 < 0):
+#     print("negative")
+# else:
+#     print("positive")
