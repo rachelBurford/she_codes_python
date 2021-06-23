@@ -6,7 +6,7 @@
 # for num in range(0,101,5):
 #     print(num)
 
-from typing import Counter
+# from typing import Counter
 
 
 chilli_wishlist = [
@@ -24,11 +24,12 @@ for item in chilli_wishlist:
 #     ["chicken", "peanut butter"], # treats
 #     ["cardboard box", "kong"] # puzzles
 
-guess = ""
-while guess != "a":
-    guess = input("Guess a letter: ")
+# guess = ""
+# while guess != "a":
+#     guess = input("Guess a letter: ")
 
-counter = 0
-while counter <= 5:
-    print(counter)
-    counter = counter + 1
+# counter = 0
+# while counter <= 5:
+#     print(counter)
+#     counter = counter + 1
+

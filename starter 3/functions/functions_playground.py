@@ -37,3 +37,15 @@ def calculate_mean(a,b):
 print(calculate_mean(2,4))
 print(calculate_mean(3,4))
 print(calculate_mean(5,10))
+
+def convert_mmddyyyy_date(date):
+    '''Takes a date in the format mm/dd/yyyy and converts it to a datetime object.
+
+    Args:
+        date: string of a date in the mm/dd/yyyy format.
+
+    Returns: a datetime object.
+    '''
+    
+    return datetime.strptime(date, '%m/%d/%Y')
+print(convert_mmddyyyy_date()
