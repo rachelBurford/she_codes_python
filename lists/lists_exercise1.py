@@ -26,3 +26,9 @@ print(f"Subtotal: ${sum}")
 # https://medium.com/programminginpython-com/python-program-to-c
 # alculate-the-sum-of-elements-in-a-list-ed2b80db8268
 
+
+name = "rach/is/cool"
+seperated_name = name.split("/")
+print(name)
+print(seperated_name)
+print(seperated_name[1])
