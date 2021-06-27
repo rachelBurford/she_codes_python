@@ -1,7 +1,7 @@
 from datetime import datetime
 
 
-
+#step2
 def convert_mmddyyyy_date(date):
     '''Takes a date in the format mm/dd/yyyy and converts it to a datetime object.
 
@@ -10,13 +10,10 @@ def convert_mmddyyyy_date(date):
 
     Returns: a datetime object.
     '''
-    for date in data[1:]:
-
-
     return datetime.strptime(date, '%m/%d/%Y')
 
 
-
+#step2a
 def get_month_name(date):
     '''Gets the month name from a datetime object.
 
@@ -26,15 +23,6 @@ def get_month_name(date):
     Returns: the month name from the given date
         (e.g. "January", "February", etc).
     '''
-    for lines in turtles[1:]:
-#     # print(lines)
-#     # print(lines[0])
-#     # print(type(lines[0]))
-        dated = lines[0]
-        date = (datetime.strptime(dated, '%m/%d/%Y'))
-    # print(x)
-        monthed = (date.strftime("%B"))
-
     return date.strftime('%B')
 
 
@@ -143,7 +131,53 @@ def transform_daily_to_monthly(data):
 
     Returns: a list of lists, where each sublist represents data
         for a whole month.
+
+    call helper functions in the step2 and step2a - use a dictonary
+    
+    start with  a dictonay with maybe months
+
+    do a for loop that changes to the right day and month uses helper functions
+    def convert_mmddyyyy_date(date):
+    get_month_name
+
+
     '''
+    monthly = {}
+    nest= []
+
+    for day in data[1:]:
+        date = convert_mmddyyyy_date(day[0])
+        # print(date)
+        month = get_month_name(date)
+        # print(month)
+        # print(f"{items[1]}: {items[0]},{items[2]}")
+        monthly [month] = ""
+        
+
+
+        print(month,day[1])
+
+    # for day in data:    
+    #     monthly[month] = monthly[month] + [day[1:6]]
+    # print(monthly)
+    # for month in monthly.keys():
+    #     days = monthly[month]
+    #     nests = 0
+    #     false_crawls = 0
+    #     hit_rocks = 0
+    #     hatched_nests = 0
+    #     nest_pred = 0
+    #     for day in days:
+    #         nests += int(day[0])
+    #         false_crawls += int(day[1])
+    #         hit_rocks += int(day[2])
+    #         hatched_nests += int(day[3])
+    #         nest_pred += int(day[4])
+    #     print([month, nests, hatched_nests, false_crawls, hit_rocks, nest_pred])
+    # return [month, nests, hatched_nests, false_crawls, hit_rocks, nest_pred]
+
+
+
    
 if __name__ == "__main__":
     all_data = read_csv_file('./data/2020_2021_turtle_data.csv')
