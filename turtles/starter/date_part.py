@@ -25,28 +25,27 @@ monthly = {}
 
 for line in turtles:
     date = convert_mmddyyyy_date(line[0])
-print(date)
-print()
 
-    # for day in data:
-    #     date = convert_mmddyyyy_date(day[0])
-    #     month = get_month_name(date)
-    #     monthly[month] = monthly[month] + [day[1:6]]
-    # for month in monthly.keys():
-    #     days = monthly[month]
-    #     nests = 0
-    #     false_crawls = 0
-    #     hit_rocks = 0
-    #     hatched_nests = 0
-    #     nest_pred = 0
-    #     for day in days:
-    #         nests += int(day[0])
-    #         false_crawls += int(day[1])
-    #         hit_rocks += int(day[2])
-    #         hatched_nests += int(day[3])
-    #         nest_pred += int(day[4])
-    #     print([month, nests, hatched_nests, false_crawls, hit_rocks, nest_pred])
-    # return [month, nests, hatched_nests, false_crawls, hit_rocks, nest_pred]
+
+    for day in data:
+        date = convert_mmddyyyy_date(day[0])
+        month = get_month_name(date)
+        monthly[month] = monthly[month] + [day[1:6]]
+    for month in monthly.keys():
+        days = monthly[month]
+        nests = 0
+        false_crawls = 0
+        hit_rocks = 0
+        hatched_nests = 0
+        nest_pred = 0
+        for day in days:
+            nests += int(day[0])
+            false_crawls += int(day[1])
+            hit_rocks += int(day[2])
+            hatched_nests += int(day[3])
+            nest_pred += int(day[4])
+        print([month, nests, hatched_nests, false_crawls, hit_rocks, nest_pred])
+    return [month, nests, hatched_nests, false_crawls, hit_rocks, nest_pred]
 
 # # print(turtles)
 

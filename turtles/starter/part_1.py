@@ -1,4 +1,6 @@
 from datetime import datetime
+from types import DynamicClassAttribute
+from typing import Counter
 
 
 #step2
@@ -69,34 +71,35 @@ def output_overall_statistics(monthly_data):
         monthly_data: a list of lists, where each sublist contains the month
         name and total values for that month.
     '''
-    dates = []
-    nests = []
-    crawls = []
-    rocks = []
-    hatched = []
-    disterbed = []
+    # print(monthly_data)
+    # dates = []
+    # nests = []
+    # crawls = []
+    # rocks = []
+    # hatched = []
+    # disterbed = []
 
-    for line in all_data[1:]:
-    # print(line)
-        dates.append(line[0])
-        nests.append(int(line[1]))
-        crawls.append(int(line[2]))
-        rocks.append(int(line[3]))
-        hatched.append(int(line[4]))
-        disterbed.append(int(line[5]))
+    # for line in monthly_data[1:]:
+    # # print(line)
+    #     dates.append(line[0])
+    #     nests.append(int(line[1]))
+    #     crawls.append(int(line[2]))
+    #     rocks.append(int(line[3]))
+    #     hatched.append(int(line[4]))
+    #     disterbed.append(int(line[5]))
 
-    count_nests = sum(nests)
-    count_crawls = sum(crawls)
-    count_rocks = sum(rocks)
-    count_hatched = sum(hatched)
-    count_disterbed = sum(disterbed)
-    print("Overall")
-    print(f"Nests :{count_nests}")
-    print(f"Hatched : {count_hatched}")
-    print(f"Crawls : {count_crawls}")
-    print(f"Rocks : {count_rocks}")
-    print(f"Nest Predation :{count_disterbed}")
-    pass
+    # count_nests = sum(nests)
+    # count_crawls = sum(crawls)
+    # count_rocks = sum(rocks)
+    # count_hatched = sum(hatched)
+    # count_disterbed = sum(disterbed)
+    # print("Overall")
+    # print(f"Nests :{count_nests}")
+    # print(f"Hatched : {count_hatched}")
+    # print(f"Crawls : {count_crawls}")
+    # print(f"Rocks : {count_rocks}")
+    # print(f"Nest Predation :{count_disterbed}")
+    # pass
 
 
 def output_monthly_statistics(monthly_data):
@@ -118,7 +121,62 @@ def output_nests_per_month_graph(monthly_data):
         monthly_data: a list of lists, where each sublist contains the month
             name and total values for that month.
     '''
-    pass
+
+    print("Number of Nests recorded per month (X = 5 nests):") 
+
+    x = 5
+
+    for month in monthly_data[1:2]:
+        October = month["October"]
+        November = month["November"]
+        December = month["December"]
+        January = month["January"]
+        February = month["February"]
+        March = month["March"]
+    
+    oct_chart = ""
+    for num in range(0,October,x):
+        oct_chart = oct_chart + "X"
+    nov_chart = ""
+    for num in range(0,November,x):
+        nov_chart = nov_chart + "X"
+    dec_chart = ""
+    for num in range(0,December,x):
+        dec_chart = dec_chart + "X"
+    jan_chart = ""
+    for num in range(0,January,x):
+        jan_chart = jan_chart + "X"
+    feb_chart = ""
+    for num in range(0,February,x):
+        feb_chart = feb_chart + "X"
+    mar_chart = ""
+    for num in range(0,March,x):
+        mar_chart = mar_chart + "X"
+    
+    print(f"  October : {October} {oct_chart}")
+    print(f"  November : {November} {nov_chart}")
+    print(f"  December : {December} {dec_chart}")
+    print(f"  January : {January} {jan_chart}")
+    print(f"  February : {February} {feb_chart}")
+    print(f"  March : {March} {mar_chart}")
+
+
+    # print(C_Oct)
+
+        # monthly [month] = 0
+        # nest [month] = 0
+        # false [month] = 0
+        # rocks [month] = 0
+        # hatched [month] = 0
+        # disturbed [month] = 0
+        # nest [month] = nest[month]+int(month[1])
+        # false [month] = false[month]+int(month[2])
+        # rocks [month] = rocks[month]+int(month[3])
+        # hatched [month] = hatched[month]+int(month[4])
+        # disturbed [month] = disturbed[month]+int(month[5])
+    # print(monthly)
+    
+
 
 
 
@@ -143,7 +201,11 @@ def transform_daily_to_monthly(data):
 
     '''
     monthly = {}
-    nest= []
+    nest = {}
+    false = {}
+    rocks = {}
+    hatched = {}
+    disturbed = {}
 
     for day in data[1:]:
         date = convert_mmddyyyy_date(day[0])
@@ -151,11 +213,42 @@ def transform_daily_to_monthly(data):
         month = get_month_name(date)
         # print(month)
         # print(f"{items[1]}: {items[0]},{items[2]}")
-        monthly [month] = ""
+        if month not in monthly.keys():
+            monthly [month] = 0
+            nest [month] = 0
+            false [month] = 0
+            rocks [month] = 0
+            hatched [month] = 0
+            disturbed [month] = 0
+        nest [month] = nest[month]+int(day[1])
+        false [month] = false[month]+int(day[2])
+        rocks [month] = rocks[month]+int(day[3])
+        hatched [month] = hatched[month]+int(day[4])
+        disturbed [month] = disturbed[month]+int(day[5])
+
+        # print(month,day[1])
+        # print(day[1])
+    # print(f"monthly{monthly}")
+    # print(nest)
+    # print(f"false{false}")
+    # print(rocks)
+    # print(hatched)
+
+
+    # for line in data[1:]:
+    #     date = convert_mmddyyyy_date(day[0])
+    #     # print(date)
+    #     month = get_month_name(date)
+    #     # print(month)
+    #     # print(f"{items[1]}: {items[0]},{items[2]}")
+    #     print(line)
         
+    
+        # print(month,day[1])
+        # print(day[1])
+        # print(monthly)
 
-
-        print(month,day[1])
+    return (monthly),(nest),(false),(rocks),(hatched)
 
     # for day in data:    
     #     monthly[month] = monthly[month] + [day[1:6]]
@@ -176,7 +269,7 @@ def transform_daily_to_monthly(data):
     #     print([month, nests, hatched_nests, false_crawls, hit_rocks, nest_pred])
     # return [month, nests, hatched_nests, false_crawls, hit_rocks, nest_pred]
 
-
+    
 
    
 if __name__ == "__main__":
@@ -194,3 +287,4 @@ if __name__ == "__main__":
     output_overall_statistics(monthly_data)
     print()
     #print(all_data)
+    # print(monthly_data)
