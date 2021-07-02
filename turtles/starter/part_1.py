@@ -3,7 +3,7 @@ from types import DynamicClassAttribute
 from typing import Counter
 
 
-#step2
+
 def convert_mmddyyyy_date(date):
     '''Takes a date in the format mm/dd/yyyy and converts it to a datetime object.
 
@@ -15,7 +15,7 @@ def convert_mmddyyyy_date(date):
     return datetime.strptime(date, '%m/%d/%Y')
 
 
-#step2a
+
 def get_month_name(date):
     '''Gets the month name from a datetime object.
 
@@ -58,9 +58,7 @@ def read_csv_file(file_name):
         for line in reader:
             turtles.append(line)
     return turtles
-
-    #pass
-    
+   
 
 
 def output_overall_statistics(monthly_data):
@@ -71,35 +69,34 @@ def output_overall_statistics(monthly_data):
         monthly_data: a list of lists, where each sublist contains the month
         name and total values for that month.
     '''
-    # print(monthly_data)
-    # dates = []
-    # nests = []
-    # crawls = []
-    # rocks = []
-    # hatched = []
-    # disterbed = []
+    nest = []
+    best = []
+    west = []
+    lest = []
+    test = []
+    jest = []
+    actions = [ "Month","Nests","Hatched Nests","False Crawls","Hit Rocks","Nest Predation" ]
+ 
 
-    # for line in monthly_data[1:]:
-    # # print(line)
-    #     dates.append(line[0])
-    #     nests.append(int(line[1]))
-    #     crawls.append(int(line[2]))
-    #     rocks.append(int(line[3]))
-    #     hatched.append(int(line[4]))
-    #     disterbed.append(int(line[5]))
+    for month in monthly_data[1:]:
+        nest.append(month["October"])
+        best.append(month["November"])
+        west.append(month["December"])
+        lest.append(month["January"])
+        test.append(month["February"])
+        jest.append(month["March"])
 
-    # count_nests = sum(nests)
-    # count_crawls = sum(crawls)
-    # count_rocks = sum(rocks)
-    # count_hatched = sum(hatched)
-    # count_disterbed = sum(disterbed)
-    # print("Overall")
-    # print(f"Nests :{count_nests}")
-    # print(f"Hatched : {count_hatched}")
-    # print(f"Crawls : {count_crawls}")
-    # print(f"Rocks : {count_rocks}")
-    # print(f"Nest Predation :{count_disterbed}")
-    # pass
+    Nests = (nest[0]+best[0]+west[0]+lest[0]+test[0]+jest[0])
+    Hatched = (nest[1]+best[1]+west[1]+lest[1]+test[1]+jest[1])
+    Fal = (nest[2]+best[2]+west[2]+lest[2]+test[2]+jest[2])
+    Hit = (nest[3]+best[3]+west[3]+lest[3]+test[3]+jest[3])
+    Pred = (nest[4]+best[4]+west[4]+lest[4]+test[4]+jest[4])
+    print("Overall")
+    print(f" Nests           {Nests}")
+    print(f" Hatched Nests   {Hatched}")
+    print(f" False Crawls    {Fal}")
+    print(f" Hit Rocks       {Hit}")
+    print(f" Nest Predation  {Pred}")
 
 
 def output_monthly_statistics(monthly_data):
@@ -110,8 +107,34 @@ def output_monthly_statistics(monthly_data):
         monthly_data: a list of lists, where each sublist contains the month
             name and total values for that month.
     '''
-   
-    # pass
+    nest = []
+    best = []
+    west = []
+    lest = []
+    test = []
+    jest = []
+    actions = [ "Month","Nests","Hatched Nests","False Crawls","Hit Rocks","Nest Predation" ]
+ 
+
+    for month in monthly_data[1:]:
+        nest.append(month["October"])
+        best.append(month["November"])
+        west.append(month["December"])
+        lest.append(month["January"])
+        test.append(month["February"])
+        jest.append(month["March"])
+
+
+    print("Montly Statistics")
+
+    print(f"  {actions[0]}     {actions[1]}    {actions[2]}   {actions[3]} {actions[4]} {actions[5]}  ")    
+    print(f"  October     {nest[0]}        {nest[1]}              {nest[2]}              {nest[3]}          {nest[4]}")
+    print(f"  November    {best[0]}       {best[1]}             {best[2]}             {best[3]}          {best[4]}")
+    print(f"  December    {west[0]}      {west[1]}             {west[2]}              {west[3]}          {west[4]}")
+    print(f"  January     {lest[0]}       {lest[1]}              {lest[2]}              {lest[3]}          {lest[4]}")
+    print(f"  February    {test[0]}         {test[1]}              {test[2]}              {test[3]}          {test[4]}")
+    print(f"  March       {jest[0]}         {jest[1]}              {jest[2]}              {jest[3]}          {jest[4]}")
+
 
 
 def output_nests_per_month_graph(monthly_data):
@@ -161,24 +184,6 @@ def output_nests_per_month_graph(monthly_data):
     print(f"  March : {March} {mar_chart}")
 
 
-    # print(C_Oct)
-
-        # monthly [month] = 0
-        # nest [month] = 0
-        # false [month] = 0
-        # rocks [month] = 0
-        # hatched [month] = 0
-        # disturbed [month] = 0
-        # nest [month] = nest[month]+int(month[1])
-        # false [month] = false[month]+int(month[2])
-        # rocks [month] = rocks[month]+int(month[3])
-        # hatched [month] = hatched[month]+int(month[4])
-        # disturbed [month] = disturbed[month]+int(month[5])
-    # print(monthly)
-    
-
-
-
 
 def transform_daily_to_monthly(data):
     '''Transform the data from daily to monthly format.
@@ -209,10 +214,9 @@ def transform_daily_to_monthly(data):
 
     for day in data[1:]:
         date = convert_mmddyyyy_date(day[0])
-        # print(date)
+ 
         month = get_month_name(date)
-        # print(month)
-        # print(f"{items[1]}: {items[0]},{items[2]}")
+
         if month not in monthly.keys():
             monthly [month] = 0
             nest [month] = 0
@@ -226,55 +230,14 @@ def transform_daily_to_monthly(data):
         hatched [month] = hatched[month]+int(day[4])
         disturbed [month] = disturbed[month]+int(day[5])
 
-        # print(month,day[1])
-        # print(day[1])
-    # print(f"monthly{monthly}")
-    # print(nest)
-    # print(f"false{false}")
-    # print(rocks)
-    # print(hatched)
+
+    return (monthly),(nest),(hatched),(false),(rocks),(disturbed)
 
 
-    # for line in data[1:]:
-    #     date = convert_mmddyyyy_date(day[0])
-    #     # print(date)
-    #     month = get_month_name(date)
-    #     # print(month)
-    #     # print(f"{items[1]}: {items[0]},{items[2]}")
-    #     print(line)
-        
-    
-        # print(month,day[1])
-        # print(day[1])
-        # print(monthly)
-
-    return (monthly),(nest),(false),(rocks),(hatched)
-
-    # for day in data:    
-    #     monthly[month] = monthly[month] + [day[1:6]]
-    # print(monthly)
-    # for month in monthly.keys():
-    #     days = monthly[month]
-    #     nests = 0
-    #     false_crawls = 0
-    #     hit_rocks = 0
-    #     hatched_nests = 0
-    #     nest_pred = 0
-    #     for day in days:
-    #         nests += int(day[0])
-    #         false_crawls += int(day[1])
-    #         hit_rocks += int(day[2])
-    #         hatched_nests += int(day[3])
-    #         nest_pred += int(day[4])
-    #     print([month, nests, hatched_nests, false_crawls, hit_rocks, nest_pred])
-    # return [month, nests, hatched_nests, false_crawls, hit_rocks, nest_pred]
-
-    
 
    
 if __name__ == "__main__":
     all_data = read_csv_file('./data/2020_2021_turtle_data.csv')
-    # print(all_data)
 
     monthly_data = transform_daily_to_monthly(all_data)
 
@@ -286,5 +249,3 @@ if __name__ == "__main__":
     print()
     output_overall_statistics(monthly_data)
     print()
-    #print(all_data)
-    # print(monthly_data)
