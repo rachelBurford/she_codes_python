@@ -1,5 +1,6 @@
 import csv
-# import plotly.express as px
+import plotly.express as px
+import plotly.graph_objects as go
 from datetime import datetime
 from os import linesep
 
@@ -108,6 +109,8 @@ def generate_nests_per_month_graph(all_data):
         all_data: a list of lists, where each sublist contains monthly data
         for the season.
     '''
+    twenty_19_nests = []
+    twenty_20_nests = []
 
     for month in data_2019[1:2]:
         October = month["October"]
@@ -116,7 +119,8 @@ def generate_nests_per_month_graph(all_data):
         January = month["January"]
         February = month["February"]
         March = 0
-        
+    
+    
     print(month)
     
     print()
@@ -129,25 +133,23 @@ def generate_nests_per_month_graph(all_data):
         February_a = month["February"]
         March_a = month["March"]
          
-    
+    twenty_19_nests.append(October)
+    twenty_19_nests.append(November)
+    twenty_19_nests.append(December)
+    twenty_19_nests.append(January)
+    twenty_19_nests.append(February)
+    twenty_19_nests.append(March)
+    # print()
+    # print()
+    twenty_20_nests.append(October_a)
+    twenty_20_nests.append(November_a)
+    twenty_20_nests.append(December_a)
+    twenty_20_nests.append(January_a)
+    twenty_20_nests.append(February_a)
+    twenty_20_nests.append(March_a)
 
-    print(f"  October : {October}")
-    print(f"  November : {November}")
-    print(f"  December : {December}")
-    print(f"  January : {January}")
-    print(f"  February : {February}")
-    print(f"  March : {March}")
-    print()
-    print()
-    print(f"  October : {October_a}")
-    print(f"  November : {November_a}")
-    print(f"  December : {December_a}")
-    print(f"  January : {January_a}")
-    print(f"  February : {February_a}")
-    print(f"  March : {March_a}")
-
-
-
+    # print(twenty_19_nests)
+    # print(twenty_20_nests)
 
     # print("data 2019:")
     # print(data_2019)
@@ -155,10 +157,7 @@ def generate_nests_per_month_graph(all_data):
     # print("data 20:")
     # print(data_2020)
 
-    
-    print()
-    
-    pass
+
 
 
 def transform_daily_to_monthly(data, date_format):

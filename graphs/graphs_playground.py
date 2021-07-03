@@ -20,3 +20,23 @@ fig = go.Figure(data=[
 ])
 
 fig.write_html("bargraph.html")
+
+
+nests19 = [34,155,180,41,0,0]
+nests20 = [14,144,170,10,0,0]
+month = ["oct","Nov","Dec","Jan","Feb","Mar"]
+
+fig = go.Figure(data=[
+    go.Scatter(
+        name="Nests 19",
+        x=month,
+        y=nests19
+    ),
+    go.Scatter(
+        name="Nests 20",
+        x=month,
+        y=nests20
+    )
+])
+
+fig.write_html("nest_demo.html")
