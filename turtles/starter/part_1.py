@@ -2,7 +2,7 @@ from datetime import datetime
 from types import DynamicClassAttribute
 from typing import Counter
 
-
+MAX_WIDTH = 20
 
 def convert_mmddyyyy_date(date):
     '''Takes a date in the format mm/dd/yyyy and converts it to a datetime object.
@@ -91,12 +91,37 @@ def output_overall_statistics(monthly_data):
     Fal = (nest[2]+best[2]+west[2]+lest[2]+test[2]+jest[2])
     Hit = (nest[3]+best[3]+west[3]+lest[3]+test[3]+jest[3])
     Pred = (nest[4]+best[4]+west[4]+lest[4]+test[4]+jest[4])
+    # print("Overall")
+    # print(f" Nests           {Nests}")
+    # print(f" Hatched Nests   {Hatched}")
+    # print(f" False Crawls    {Fal}")
+    # print(f" Hit Rocks       {Hit}")
+    # print(f" Nest Predation  {Pred}")
+
+    overall = ["Nests","Hatched Nests","False Crawls","Hit Rocks","Nest Predation"]
+    
+
+    # print(len(max_len))
+    max_length = MAX_WIDTH
+
+
+    #14
+
     print("Overall")
-    print(f" Nests           {Nests}")
-    print(f" Hatched Nests   {Hatched}")
-    print(f" False Crawls    {Fal}")
-    print(f" Hit Rocks       {Hit}")
-    print(f" Nest Predation  {Pred}")
+    # formatted_text = format_text("Nests",((max_length) - (len("Nests"))))
+    print(f" {format_text('Nests',((max_length) - (len('Nests'))))} {Nests}")
+    print(f" {format_text('Hatched Nests',((max_length) - (len('Hatched Nests'))))}   {Hatched}")
+    print(f" {format_text('False Crawls',((max_length) - (len('False Crawls'))))}    {Fal}")
+    print(f" {format_text('Hit Rocks',((max_length) - (len('Hit Rocks'))))}      {Hit}")
+    print(f" {format_text('Nest Predation',((max_length) - (len('Nest Predation'))))}   {Pred}")
+
+    
+    # print(f" Nests {Nests}")
+    # print(f" Hatched Nests{Hatched}")
+    # print(f" False Crawls{Fal}")
+    # print(f" Hit Rocks{Hit}")
+    # print(f" Nest Predation{Pred}")
+
 
 
 def output_monthly_statistics(monthly_data):
