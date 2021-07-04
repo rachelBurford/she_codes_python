@@ -39,4 +39,19 @@ fig = go.Figure(data=[
     )
 ])
 
+fig.update_layout(
+    title="Overall Stats",
+    xaxis_title="Statistic",
+    yaxis_title="Number Recorded"
+)
+fig.add_layout_image(
+dict(
+    source="https://raw.githubusercontent.com/cldougl/plot_images/add_r_img/vox.png",
+    xref="paper", yref="paper",
+    x=1, y=1.05,
+    sizex=0.2, sizey=0.2,
+    xanchor="right", yanchor="bottom"
+)
+)
+
 fig.write_html("nest_demo.html")
